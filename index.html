@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HF Markets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Sofia+Sans+Condensed:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1,
+      h2 {
+        font-family: "Sofia Sans Condensed", sans-serif;
+      }
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-[#161616] text-[#EEEEEE] px-8 py-4">
+      <div
+        class="max-w-[1500px] mx-auto flex flex-row justify-between items-center h-24"
+      >
+        <!-- LEFT: Logo -->
+        <div class="mb-0">
+          <a href="#" class="flex flex-col leading-tight items-start">
+            <span class="text-xs text-gray-400"
+              >Member of HF Markets Group</span
+            >
+            <img
+              src="./assets/logo.svg"
+              alt="HF Markets Logo"
+              class="h-14 w-auto mt-3"
+            />
+          </a>
+        </div>
+        <!-- CENTER: Navigation Links -->
+        <nav
+          class="hidden h-full mb-2 lg:flex items-end"
+          aria-label="Main navigation"
+        >
+          <ul class="flex items-end gap-2 md:gap-6 text-xs xl:text-lg mb-2">
+            <li><a href="#" class="hover:text-gray-300">Markets</a></li>
+            <li><a href="#" class="hover:text-gray-300">Trading</a></li>
+            <li><a href="#" class="hover:text-gray-300">Investing</a></li>
+            <li>
+              <a href="#" class="hover:text-gray-300">Tools & Education</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-300">Company</a></li>
+          </ul>
+        </nav>
+        <!-- RIGHT: 2 Rows (icons + buttons) -->
+        <div
+          class="hidden lg:flex flex-col items-end justify-between text-xs xl:text-lg h-full"
+        >
+          <!-- Row 1: Icons/Links -->
+          <div class="flex items-center gap-4 flex-wrap">
+            <a
+              href="#"
+              class="flex items-center gap-2 border border-gray-800 px-1 py-1 rounded hover:border-gray-500 transition"
+            >
+              <img
+                src="./assets/phoneicon.svg"
+                alt="Download App"
+                class="size-5"
+              />
+              <span>Download App</span>
+            </a>
+            <div class="flex divide-x divide-gray-600">
+              <a href="#" class="hover:text-gray-300 px-4">Contact us</a>
+              <a href="#" class="hover:text-gray-300 px-4">Partner with us</a>
+              <img src="./assets/en.svg" alt="English" class="pl-4" />
+            </div>
+          </div>
+
+          <!-- Row 2: Auth Buttons -->
+          <div class="flex gap-3 mb-2">
+            <button
+              class="px-6 py-1 border border-red-800 rounded hover:bg-red-900 hover:text-white transition"
+            >
+              Login
+            </button>
+            <button
+              class="px-6 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu Button (visible below lg) -->
+        <button id="menu-toggle" class="lg:hidden ml-auto">
+          <img class="size-8" src="./assets//menu.svg" />
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden gap-6 mt-6 text-sm bg-[#161616]"
+      >
+        <!-- Navigation Links -->
+        <nav aria-label="Mobile navigation">
+          <ul class="flex flex-col gap-3">
+            <li><a href="#" class="hover:text-gray-300">Markets</a></li>
+            <li><a href="#" class="hover:text-gray-300">Trading</a></li>
+            <li><a href="#" class="hover:text-gray-300">Investing</a></li>
+            <li>
+              <a href="#" class="hover:text-gray-300">Tools & Education</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-300">Company</a></li>
+          </ul>
+        </nav>
+
+        <!-- Links -->
+        <div class="flex flex-col gap-4 mt-6">
+          <a
+            href="#"
+            class="flex items-center gap-2 border border-gray-600 px-3 py-1 rounded hover:border-gray-500 transition w-40"
+          >
+            <img
+              src="./assets/phoneicon.svg"
+              alt="Download App"
+              class="w-4 h-4"
+            />
+            <span>Download App</span>
+          </a>
+          <div class="flex divide-x divide-gray-600 items-center">
+            <a href="#" class="hover:text-gray-300 pr-4">Contact us</a>
+            <a href="#" class="hover:text-gray-300 px-4">Partner with us</a>
+            <img src="./assets/en.svg" alt="English" class="pl-4" />
+          </div>
+
+          <!-- Auth Buttons -->
+          <div class="flex gap-3">
+            <button
+              class="px-6 py-1 border border-red-800 rounded hover:bg-red-900 hover:text-white transition"
+            >
+              Login
+            </button>
+            <button
+              class="px-6 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="relative bg-cover bg-center bg-no-repeat py-16 px-4"
+        style="background-image: url('./assets/background.svg')"
+      >
+        <div class="text-center mb-10">
+          <h1
+            class="text-5xl sm:text-7xl font-bold bg-[linear-gradient(to_right,#FCD678,#BC8C2F)] bg-clip-text text-transparent"
+          >
+            LOREM IPSUM DOLOR
+          </h1>
+          <h2 class="text-5xl sm:text-7xl font-bold text-white mt-2">
+            SIT AMET TOSIK
+          </h2>
+        </div>
+
+        <!-- Form Container -->
+        <div
+          class="bg-white max-w-2xl mx-3 sm:mx-auto p-6 md:p-10 rounded-lg shadow-lg space-y-6"
+        >
+          <h3 class="text-2xl font-bold text-center">
+            Lorem ipsum dolor sit amet
+          </h3>
+
+          <form id="register-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                class="border border-gray-400 p-2 rounded w-full"
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                class="border border-gray-400 p-2 rounded w-full"
+              />
+
+              <select
+                name="country"
+                id="country-select"
+                class="border border-gray-400 p-2 rounded w-full text-gray-400"
+              >
+                <option value="">Country</option>
+                <option value="US">United States</option>
+                <option value="UK">United Kingdom</option>
+                <option value="IN">India</option>
+              </select>
+              <div class="flex gap-2">
+                <input
+                  type="text"
+                  name="code"
+                  id="phone-code"
+                  placeholder="Code"
+                  class="border border-gray-400 p-2 rounded w-1/4"
+                  readonly
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone"
+                  class="border border-gray-400 p-2 rounded w-full"
+                />
+              </div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                class="border border-gray-400 p-2 rounded w-full"
+              />
+
+              <select
+                name="experience"
+                class="border p-2 rounded w-full border-gray-400 text-gray-400"
+              >
+                <option value="">Experience</option>
+                <option value="One">One</option>
+                <option value="Two">Two</option>
+                <option value="Three">Three</option>
+              </select>
+            </div>
+            <!-- Error Message -->
+            <p id="form-error" class="text-red-600 text-sm hidden"></p>
+            <div class="flex items-center gap-2 text-xs">
+              <input type="checkbox" id="terms" class="accent-r" />
+              <label for="terms" class="text-gray-400">
+                I have read and accepted the
+                <a href="#" class="text-red-600">Privacy Policy</a> and
+                <a href="#" class="text-red-600">Terms and Conditions</a>
+              </label>
+            </div>
+            <div class="flex justify-center w-full">
+              <button
+                type="submit"
+                class="bg-[#179149] text-white text-lg font-bold py-3 rounded hover:bg-green-700 transition w-1/2"
+              >
+                JOIN NOW
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="bg-[#F4F4F4] pt-16 px-4">
+        <!-- Title -->
+        <h2 class="text-center text-2xl md:text-5xl mb-12">QUISQUE RUTRUM</h2>
+        <div
+          class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12"
+        >
+          <!-- Left Features -->
+          <div
+            class="grid grid-cols-2 lg:flex flex-col items-center lg:items-end gap-12"
+          >
+            <div
+              class="flex flex-col items-center lg:items-start text-center lg:text-start text-sm"
+            >
+              <img src="./assets/user.svg" alt="User" class="size-15" />
+              <p class="mt-2 max-w-[150px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center lg:items-start text-center lg:text-start text-sm"
+            >
+              <img src="./assets/money.svg" alt="Money" class="size-15" />
+              <p class="mt-2 max-w-[150px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+            <div
+              class="lg:hidden flex flex-col items-center lg:items-start text-center lg:text-start text-sm"
+            >
+              <img src="./assets/candles.svg" alt="Candles" class="size-15" />
+              <p class="mt-2 max-w-[150px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+            <div
+              class="lg:hidden flex flex-col items-center lg:items-start text-center lg:text-start text-sm"
+            >
+              <img src="./assets/user.svg" alt="User" class="size-15" />
+              <p class="mt-2 max-w-[150px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+          </div>
+          <!-- Center Phones -->
+          <div class="relative flex justify-center items-center">
+            <img src="./assets/phonebg.svg" alt="Phones" />
+          </div>
+          <!-- Right Features -->
+          <div
+            class="hidden lg:flex flex-col items-center lg:items-start gap-12"
+          >
+            <div class="flex flex-col items-start text-sm">
+              <img src="./assets/candles.svg" alt="Candles" class="size-15" />
+              <p class="mt-2 max-w-[150px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+            <div class="flex flex-col items-start text-sm">
+              <img src="./assets/user.svg" alt="User" class="size-15" />
+              <p class="mt-2 max-w-[150px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 px-4 text-center">
+        <h2 class="text-3xl md:text-5xl mb-12">PRIZES</h2>
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+        >
+          <!-- Card 1 -->
+          <article
+            class="bg-[#F4F4F4] w-5/6 md:w-full mx-auto rounded-xl px-6 py-10 flex flex-col items-center"
+          >
+            <img src="./assets/medal1.svg" alt="1st Place" class="h-15 mb-2" />
+            <p class="text-4xl font-bold">$1000</p>
+            <p class="mt-6">CRAS DAPIBUS &<br />CRAS DAPIBUS</p>
+          </article>
+          <!-- Card 2 -->
+          <article
+            class="bg-[#F4F4F4] w-5/6 md:w-full mx-auto rounded-xl px-6 py-10 flex flex-col items-center"
+          >
+            <img src="./assets/medal2.svg" alt="2nd Place" class="h-15 mb-2" />
+            <p class="text-4xl font-bold">$1000</p>
+            <p class="mt-6">CRAS DAPIBUS</p>
+          </article>
+          <!-- Card 3 -->
+          <article
+            class="bg-[#F4F4F4] w-5/6 md:w-full mx-auto rounded-xl px-6 py-10 flex flex-col items-center"
+          >
+            <img src="./assets/medal3.svg" alt="3rd Place" class="h-15 mb-2" />
+            <p class="text-4xl font-bold">$1000</p>
+            <p class="mt-6">CRAS DAPIBUS</p>
+          </article>
+        </div>
+        <!-- Join Now Button -->
+        <div>
+          <button
+            class="bg-[#179149] text-white text-xl px-[100px] py-3 rounded hover:bg-green-700 transition font-semibold"
+          >
+            JOIN NOW
+          </button>
+          <p class="text-xs text-gray-400 mt-2">Terms and Conditions apply</p>
+        </div>
+      </section>
+
+      <section class="bg-[#F4F4F4] py-16 px-4">
+        <h2 class="text-center text-4xl font-semibold mb-12">
+          SED FRINGILLA MAURIS SIT
+        </h2>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <!-- LEFT: Winner Cards -->
+          <div class="flex flex-col gap-6">
+            <!-- CARD 1 -->
+            <div
+              class="relative bg-white rounded-xl p-6 flex items-center gap-4"
+            >
+              <img src="./assets/trophy1.svg" alt="Trophy 1" class="size-15" />
+              <div>
+                <p
+                  class="text-xl bg-[linear-gradient(to_right,#FCD678,#BC8C2F)] bg-clip-text text-transparent uppercase font-bold"
+                >
+                  January 1<span class="text-xs align-top lowercase">st</span>
+                  Winner
+                </p>
+                <p class="text-lg mt-4 uppercase">John Smith</p>
+                <p class="text-gray-400">5678987654</p>
+                <p class="text-lg font-bold mt-4">
+                  TOTAL GAIN OF <span class="text-red-600">16344%</span>
+                </p>
+              </div>
+              <div
+                class="ribbon overflow-hidden absolute h-40 w-40 top-0 right-0 before:absolute before:top-0 before:left-0 after:absolute after:bottom-0 after:right-0"
+              >
+                <div
+                  class="absolute -right-50 top-5 w-60 bg-gradient-to-br from-[#FCD678] to-[#BC8C2F] py-2.5 text-center font-bold text-2xl text-white rotate-45"
+                >
+                  $1000
+                </div>
+              </div>
+            </div>
+            <!-- CARD 2 -->
+            <div
+              class="relative bg-white rounded-xl p-6 flex items-center gap-4"
+            >
+              <img src="./assets/trophy2.svg" alt="Trophy 1" class="size-15" />
+              <div>
+                <p
+                  class="text-xl bg-[linear-gradient(to_right,#FCD678,#BC8C2F)] bg-clip-text text-transparent uppercase font-bold"
+                >
+                  January 2<span class="text-xs align-top lowercase">nd</span>
+                  Winner
+                </p>
+                <p class="text-lg mt-4 uppercase">John Smith</p>
+                <p class="text-gray-400">5678987654</p>
+                <p class="text-lg font-bold mt-4">
+                  TOTAL GAIN OF <span class="text-red-600">16344%</span>
+                </p>
+              </div>
+              <div
+                class="ribbon overflow-hidden absolute h-40 w-40 top-0 right-0 before:absolute before:top-0 before:left-0 after:absolute after:bottom-0 after:right-0"
+              >
+                <div
+                  class="absolute -right-50 top-5 w-60 bg-gradient-to-br from-[#FCD678] to-[#BC8C2F] py-2.5 text-center font-bold text-2xl text-white rotate-45"
+                >
+                  $1000
+                </div>
+              </div>
+            </div>
+            <!-- CARD 3 -->
+            <div
+              class="relative bg-white rounded-xl p-6 flex items-center gap-4"
+            >
+              <img src="./assets/trophy3.svg" alt="Trophy 1" class="size-15" />
+              <div>
+                <p
+                  class="text-xl bg-[linear-gradient(to_right,#FCD678,#BC8C2F)] bg-clip-text text-transparent uppercase font-bold"
+                >
+                  January 3<span class="text-xs align-top lowercase">rd</span>
+                  Winner
+                </p>
+                <p class="text-lg mt-4 uppercase">John Smith</p>
+                <p class="text-gray-400">5678987654</p>
+                <p class="text-lg font-bold mt-4">
+                  TOTAL GAIN OF <span class="text-red-600">16344%</span>
+                </p>
+              </div>
+              <div
+                class="ribbon overflow-hidden absolute h-40 w-40 top-0 right-0 before:absolute before:top-0 before:left-0 after:absolute after:bottom-0 after:right-0"
+              >
+                <div
+                  class="absolute -right-50 top-5 w-60 bg-gradient-to-br from-[#FCD678] to-[#BC8C2F] py-2.5 text-center font-bold text-2xl text-white rotate-45"
+                >
+                  $1000
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Leaderboard Table -->
+          <div>
+            <h3 class="font-bold text-2xl mb-10 text-center lg:text-start">
+              ALIQUAM LOREM ANT
+            </h3>
+            <div class="ml-5">
+              <table class="w-full text-left text-sm">
+                <thead>
+                  <tr class="border-b">
+                    <th class="text-red-700 font-bold py-2">NAME</th>
+                    <th class="text-red-700 font-bold py-2">GAIN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">1624.19%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">1083.63%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">635.47%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">169.20%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">158.62%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">124.50%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">71.47%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">67.05%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">62.30%</td>
+                  </tr>
+                  <tr class="border-b text-lg">
+                    <td class="py-2 w-4/5">John Smith</td>
+                    <td class="py-2 text- font-bold">61.74%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-gray-400 text-xs mt-8">
+              Nam quam nunc, bladit vel luctus pulvinar
+            </p>
+          </div>
+        </div>
+
+        <!-- Join Now Button -->
+        <div class="text-center mt-10">
+          <button
+            class="bg-[#179149] text-white text-xl px-[100px] py-3 rounded hover:bg-green-700 transition font-semibold"
+          >
+            JOIN NOW
+          </button>
+          <p class="text-xs text-gray-400 mt-2">Terms and Conditions apply</p>
+        </div>
+      </section>
+
+      <section class="bg-[#F4F4F4] pt-16 pb-40 px-4">
+        <h2 class="text-center text-6xl mb-20">FAQs</h2>
+        <div class="max-w-6xl mx-auto">
+          <!-- FAQ Item 1-->
+          <div class="faq-item">
+            <button
+              class="faq-btn w-full flex justify-between items-center py-4 text-left font-medium text-lg focus:outline-none border-b border-gray-300"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-2xl font-semibold">Question A</span>
+              <img src="./assets/dropdown.png" class="dropdown size-5" />
+            </button>
+            <div class="faq-answer px-2 pb-4 hidden mt-4 text-xl">Answer A</div>
+          </div>
+          <!-- FAQ Item 2 -->
+          <div class="faq-item">
+            <button
+              class="faq-btn w-full flex justify-between items-center py-4 text-left font-medium text-lg focus:outline-none border-b border-gray-300"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-2xl font-semibold">Question B</span>
+              <img src="./assets/dropdown.png" class="dropdown size-5" />
+            </button>
+            <div class="faq-answer px-2 pb-4 hidden mt-4 text-xl">Answer B</div>
+          </div>
+          <!-- FAQ Item 3 -->
+          <div class="faq-item">
+            <button
+              class="faq-btn w-full flex justify-between items-center py-4 text-left font-medium text-lg focus:outline-none border-b border-gray-300"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-2xl font-semibold">Question C</span>
+              <img src="./assets/dropdown.png" class="dropdown size-5" />
+            </button>
+            <div class="faq-answer px-2 pb-4 hidden mt-4 text-xl">Answer C</div>
+          </div>
+          <!-- FAQ Item 4 -->
+          <div class="faq-item">
+            <button
+              class="faq-btn w-full flex justify-between items-center py-4 text-left font-medium text-lg focus:outline-none border-b border-gray-300"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-2xl font-semibold">Question D</span>
+              <img src="./assets/dropdown.png" class="dropdown size-5" />
+            </button>
+            <div class="faq-answer px-2 pb-4 hidden mt-4 text-xl">Answer D</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#161616] text-white px-2 lg:px-12 py-12">
+      <div class="mx-auto grid grid-cols-1 lg:grid-cols-[3fr_5fr] gap-12">
+        <!-- LEFT: Socials & App Downloads -->
+        <div
+          class="lg:space-y-6 lg:ml-auto flex flex-wrap lg:block justify-between"
+        >
+          <!-- Socials -->
+          <div>
+            <h4 class="font-semibold text-xl mb-2 ml-5">Find us on</h4>
+            <img src="./assets/socials.svg" alt="Social Icons" />
+          </div>
+          <!-- Apps -->
+          <div class="ml-5">
+            <h4 class="font-semibold text-xl mb-2">Download HFM App</h4>
+            <div class="flex gap-2 flex-wrap">
+              <a
+                href="#"
+                class="flex items-center gap-1 bg-black text-white px-3 py-1 rounded-lg border border-white hover:bg-gray-900 min-w-40"
+              >
+                <img
+                  src="./assets/appstore.svg"
+                  alt="App Store"
+                  class="size-7"
+                />
+                <div class="text-left leading-tight text-sm">
+                  <span class="block text-[10px]">Download on the</span>
+                  <span class="text-lg">App Store</span>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="flex items-center gap-1 bg-black text-white px-3 py-1 rounded-lg border border-white hover:bg-gray-900 min-w-40"
+              >
+                <img
+                  src="./assets/googleplay.svg"
+                  alt="Google Play"
+                  class="size-7"
+                />
+                <div class="text-left leading-tight text-sm">
+                  <span class="block text-[10px]">Get it on</span>
+                  <span class="text-lg">Google Play</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: Risk Warning -->
+        <div class="ml-5 lg:ml-0">
+          <h4 class="font-semibold lg:mb-10 mb-5 text-xl">Risk Warning</h4>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+            imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pLorem
+            ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
+            magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+            felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+            consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
+            nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
+            venenatis vitae, justo. Nullam dictum felis eu p
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
